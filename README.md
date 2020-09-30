@@ -26,6 +26,7 @@ type Driver interface {
 - http://localhost:3359/member?page=2
 - http://localhost:3359/member?range=id:14,23&rows=1&page=2&sort:-age
 - http://localhost:3359/member?range=id:3,8&range=age:6,4
+- http://localhost:3359/member?nickname=a&nickname=b
 
 Run the sample code to see the effect 
 

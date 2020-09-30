@@ -76,14 +76,15 @@ func (orm *Gorm) Index(index string) {
 
 // Sort 排序
 func (orm *Gorm) Sort(sortInfo []pager.SortInfo) {
+	var sorts []string
 	for _, sort := range sortInfo {
 		if sort.Sort == pager.Asc {
-			orm.sorts += fmt.Sprintf("%s ASC,", sort.Key)
+			sorts = append(sorts, fmt.Sprintf("%s ASC", sort.Key))
 		} else {
-			orm.sorts += fmt.Sprintf("%s DESC,", sort.Key)
+			sorts = append(sorts, fmt.Sprintf("%s DESC", sort.Key))
 		}
 	}
-	orm.sorts = strings.TrimRight(orm.sorts, ",")
+	orm.sorts = strings.Join(sorts, ",")
 }
 
 // Find 从数据库查询数据
