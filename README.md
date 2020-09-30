@@ -1,4 +1,4 @@
-# pager
+# pager ![build](https://api.travis-ci.org/kenretto/pager.svg?branch=master&status=passed)
 Pager is a web paging tool for golang
 
 # Interface 
