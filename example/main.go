@@ -1,36 +1,3 @@
-# pager
-Pager is a web paging tool for golang
-
-# Interface 
-This tool provides gorm-based data paging. If you don't need Gorm, you can choose to implement the following interface or create issues.
-
-```go
-type Driver interface {
-	Where(kv Where)
-	Range(r Range)
-	Limit(limit int)
-	Skip(skip int)
-	Index(index string)
-	Sort(kv []SortInfo)
-	Find(data interface{})
-	SetTyp(typ reflect.Type)
-	Count() int64
-}
-```
-
-# Url-rule
-- http://localhost:3359/member?range=id:14 
-- http://localhost:3359/member?name=a
-- http://localhost:3359/member?sort:-age
-- http://localhost:3359/member?rows=3
-- http://localhost:3359/member?page=2
-- http://localhost:3359/member?range=id:14,23&rows=1&page=2&sort:-age
-- http://localhost:3359/member?range=id:3,8&range=age:6,4
-
-Run the sample code to see the effect 
-
-# example
-```go
 package main
 
 import (
@@ -112,5 +79,3 @@ func main() {
 	})
 	log.Fatalln(http.ListenAndServe(":3359", nil))
 }
-
-```
